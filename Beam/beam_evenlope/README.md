@@ -24,6 +24,9 @@ Options:
 1. Pion
 2. Kaon
 3. Proton
+4. Mixed Generation (Pion, Kaon, Proton)
+5. Deuteron (D2)
+6. Alpha Particle (He4)
 
 Plot Options:
 1. Unfitted Distributions
@@ -35,13 +38,11 @@ Plot Options:
 HEMP3 format
 
 ```
-E 0 0 0 0 0 0
-F GenEvent 3 0
-F Units 0 0
-F MomentumUnit GEV
-F LengthUnit MM
-F GenParticle 1 1 211 1 0 0 0 0 px py pz E
-F GenVertex 1 -1 -1 -1 vx vy vz 0.0
+E {event_id} 1 2
+U GEV MM
+P 1 0 {pdg_id} {px} {py} {pz} {E} {mass} 1
+V -1 0 [1] {vx} {vy} {vz} 0.0
+P 2 -1 {pdg_id} {px} {py} {pz} {E} {mass} 1
 ```
 
 ## Visualizations
@@ -51,7 +52,7 @@ F GenVertex 1 -1 -1 -1 vx vy vz 0.0
 
 
 # Using the generated HEPMC files in the npsim:
-- Loading the detector geomettry (we are using the default ePIC detector geometry file as an example)
+- Loading the detector geometry (we are using the default ePIC detector geometry file as an example)
 
 ```source /opt/detector/epic-main/bin/thisepic.sh```
 
